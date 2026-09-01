@@ -1,0 +1,6 @@
+# CPU-only:  pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+# GPU:       install torch/torchvision for your CUDA first (https://pytorch.org/get-started/locally/), then the rest.
+numpy>=2.0
+opencv-python-headless>=4.10
+torch>=2.4
+torchvision>=0.19

@@ -1,0 +1,17 @@
+# dataset (7GB, not tracked)
+data/
+archive.zip
+*.avi
+
+# caches / outputs
+features/
+runs/
+*.npy
+*.npz
+*.pt
+*.pth
+
+# python
+.venv/
+__pycache__/
+*.pyc
