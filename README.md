@@ -1,0 +1,1 @@
+Dataset from Kaggle: https://www.kaggle.com/datasets/matthewjansen/ucf101-action-recognition?resource=download
