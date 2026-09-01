@@ -2,10 +2,12 @@
 data/
 archive.zip
 *.avi
+*.zip
 
 # caches / outputs
 features/
 runs/
+poc_outputs/
 *.npy
 *.npz
 *.pt
@@ -15,3 +17,4 @@ runs/
 .venv/
 __pycache__/
 *.pyc
+predictions_out/
