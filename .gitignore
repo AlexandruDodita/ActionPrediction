@@ -12,6 +12,7 @@ poc_outputs/
 *.npz
 *.pt
 *.pth
+demo/videos/
 
 # python
 .venv/

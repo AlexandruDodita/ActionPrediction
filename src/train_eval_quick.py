@@ -98,6 +98,14 @@ if __name__ == "__main__":
 
     # no flow channels present (--flow none) -> nothing else to compare
     if n_ch > 3:
+        flow_channels = list(range(3, n_ch))
+        acc_flow = train_eval(
+            pool_features(tr["X"], flow_channels), tr["y"],
+            pool_features(te["X"], flow_channels), te["y"],
+            n_classes, device, args.epochs, name="flow-only",
+        )
+        results["flow-only (optical flow)"] = acc_flow
+
         all_channels = list(range(n_ch))
         acc_poseoff = train_eval(
             pool_features(tr["X"], all_channels), tr["y"],
