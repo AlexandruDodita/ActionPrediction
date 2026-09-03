@@ -86,15 +86,40 @@ Notes for the GPU run:
 Smoke-tested here: `--flow dis --limit 60`, `--flow raft_small --device cpu --limit 3`, `--flow none` — all produce
 `(N, 32, 17, 53|3)` with 0 errors, non-zero flow windows, keypoints in video pixel coordinates.
 
-## Plan
+## Training and evaluation
 
-1. `build_dataset.py` — done; produces pose-only and PoseOFF tensors.
-2. `train.py` — small ST-GCN (17-joint COCO graph) with a swappable input embedding: 3-ch pose-only vs
-   53-ch PoseOFF (the paper's tiny CNN over the 5×5 flow window, concatenated to the joint features).
-   Identical hyper-parameters for both.
-3. `evaluate.py` — temporal masking at observation ratios 0.1 … 1.0 (train on full clips, mask at test),
-   accuracy-vs-ratio curve, AUC, per-class recall deltas (paper Fig. 5/6, Table I).
-4. Optional appearance baseline (frozen ResNet/CLIP per-frame features + temporal head) for context.
+Two trainers, both consuming the `.npz` features above (pose-only or PoseOFF variants of the same model,
+identical settings, so the comparison is apples-to-apples):
+
+```bash
+scripts/build_pose_only.sh                  # pose-only features for all 3 splits + quick MLP baseline
+python src/train_eval_quick.py --train features/split1_train_T32_dis.npz --test features/split1_test_T32_dis.npz
+                                            # fast proxy: MLP on mean/std-pooled features, pose vs PoseOFF
+python src/train_stgcn.py                   # the real comparison: ST-GCN backbone (paper Sec. III-B),
+                                            # pose-only and PoseOFF variants (--variant pose|poseoff)
+```
+
+Demos (after features exist):
+
+```bash
+scripts/predict_10.sh                       # print predictions for 10 test clips
+scripts/predict_10_video.sh                 # burn prediction + skeleton onto the clips
+python src/export_fusion_demo.py && python src/fusion_demo.py   # play with pose/flow probability fusion
+python src/export_video_demo_stgcn.py && python src/gen_video_demo_html.py  # browser demo (demo/video_demo.html)
+```
+
+For videos **not** in UCF101 (no HRNet pickle coverage) there is a per-clip extraction pipeline:
+`src/extract_frames.py` → `src/pose_rtmpose.py` (RTMPose via `rtmlib`) → `src/optical_flow.py` (RAFT/DIS) →
+`src/poseoff.py`.
+
+## Not done yet / ideas
+- Anticipation evaluation on the ST-GCN: temporal masking at observation ratios 0.1…1.0, accuracy-vs-ratio
+  curve + AUC + per-class recall deltas (paper Fig. 5/6). An earlier prototype run of this (8 epochs, CPU) gave
+  pose 35.5 % / PoseOFF 43.0 % at full observation, with PoseOFF matching pose's full-clip accuracy after 60 %
+  of the clip — consistent with the paper's UCF101 findings.
+- RAFT-flow features (GPU) vs DIS: `build_dataset.py --flow raft_large --device cuda`, then retrain.
+- Splits 2 and 3 (`build_dataset.py --split 2|3`).
+- Multi-person: `select_person` keeps only the top skeleton; PYSKL keeps two.
 
 ## References
 - Paper: `0362_FI_flow.pdf` (PoseOFF). UCF101 numbers there used YOLO-Pose-L keypoints + RAFT flow.

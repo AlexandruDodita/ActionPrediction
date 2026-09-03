@@ -1,5 +1,5 @@
 """Generate a bare-bones (no styling effort) local HTML page for the 20-clip demo:
-pose-only / flow-only / combined GIFs + confidence, with two %% inputs to reweight
+pose / flow / combined / PoseOFF-sampling-grid GIFs + confidence, with two %% inputs to reweight
 the combined confidence live. Run after export_video_demo.py.
 
 Usage:
@@ -20,16 +20,21 @@ for c in data["demo_clips"]:
     <h3>{name} &mdash; true: <span class="true">{data['classes'][c['true']]}</span></h3>
     <div class="three">
       <div>
-        <img src="videos/{name}_pose.gif" width="320">
+        <img src="videos/{name}_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/{name}_flow.gif" width="320">
+        <img src="videos/{name}_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/{name}_combined.gif" width="320">
+        <img src="videos/{name}_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/{name}_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>""")
@@ -41,7 +46,9 @@ html = f"""<!doctype html>
 <title>pose+flow fusion demo</title>
 <style>
 body {{ font-family: monospace; margin: 20px; }}
-.three {{ display: flex; gap: 20px; }}
+.three {{ display: flex; gap: 12px; }}
+.three > div {{ flex: 1 1 0; min-width: 0; }}
+.three img {{ width: 100%; max-width: 480px; height: auto; }}
 .clip {{ border-top: 1px solid #999; padding-top: 10px; margin-top: 20px; }}
 .correct {{ color: green; }}
 .wrong {{ color: red; }}

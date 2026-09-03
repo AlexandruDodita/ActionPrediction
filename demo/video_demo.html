@@ -5,7 +5,9 @@
 <title>pose+flow fusion demo</title>
 <style>
 body { font-family: monospace; margin: 20px; }
-.three { display: flex; gap: 20px; }
+.three { display: flex; gap: 12px; }
+.three > div { flex: 1 1 0; min-width: 0; }
+.three img { width: 100%; max-width: 480px; height: auto; }
 .clip { border-top: 1px solid #999; padding-top: 10px; margin-top: 20px; }
 .correct { color: green; }
 .wrong { color: red; }
@@ -31,16 +33,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_TennisSwing_g06_c05 &mdash; true: <span class="true">TennisSwing</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_TennisSwing_g06_c05_pose.gif" width="320">
+        <img src="videos/v_TennisSwing_g06_c05_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_TennisSwing_g06_c05_flow.gif" width="320">
+        <img src="videos/v_TennisSwing_g06_c05_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_TennisSwing_g06_c05_combined.gif" width="320">
+        <img src="videos/v_TennisSwing_g06_c05_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_TennisSwing_g06_c05_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -48,16 +55,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_FrisbeeCatch_g02_c03 &mdash; true: <span class="true">FrisbeeCatch</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_FrisbeeCatch_g02_c03_pose.gif" width="320">
+        <img src="videos/v_FrisbeeCatch_g02_c03_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_FrisbeeCatch_g02_c03_flow.gif" width="320">
+        <img src="videos/v_FrisbeeCatch_g02_c03_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_FrisbeeCatch_g02_c03_combined.gif" width="320">
+        <img src="videos/v_FrisbeeCatch_g02_c03_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_FrisbeeCatch_g02_c03_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -65,16 +77,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_Drumming_g04_c02 &mdash; true: <span class="true">Drumming</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_Drumming_g04_c02_pose.gif" width="320">
+        <img src="videos/v_Drumming_g04_c02_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Drumming_g04_c02_flow.gif" width="320">
+        <img src="videos/v_Drumming_g04_c02_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Drumming_g04_c02_combined.gif" width="320">
+        <img src="videos/v_Drumming_g04_c02_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_Drumming_g04_c02_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -82,16 +99,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_Typing_g02_c06 &mdash; true: <span class="true">Typing</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_Typing_g02_c06_pose.gif" width="320">
+        <img src="videos/v_Typing_g02_c06_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Typing_g02_c06_flow.gif" width="320">
+        <img src="videos/v_Typing_g02_c06_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Typing_g02_c06_combined.gif" width="320">
+        <img src="videos/v_Typing_g02_c06_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_Typing_g02_c06_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -99,16 +121,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_LongJump_g05_c05 &mdash; true: <span class="true">LongJump</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_LongJump_g05_c05_pose.gif" width="320">
+        <img src="videos/v_LongJump_g05_c05_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_LongJump_g05_c05_flow.gif" width="320">
+        <img src="videos/v_LongJump_g05_c05_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_LongJump_g05_c05_combined.gif" width="320">
+        <img src="videos/v_LongJump_g05_c05_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_LongJump_g05_c05_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -116,16 +143,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_PlayingDhol_g03_c05 &mdash; true: <span class="true">PlayingDhol</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_PlayingDhol_g03_c05_pose.gif" width="320">
+        <img src="videos/v_PlayingDhol_g03_c05_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_PlayingDhol_g03_c05_flow.gif" width="320">
+        <img src="videos/v_PlayingDhol_g03_c05_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_PlayingDhol_g03_c05_combined.gif" width="320">
+        <img src="videos/v_PlayingDhol_g03_c05_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_PlayingDhol_g03_c05_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -133,16 +165,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_Nunchucks_g07_c04 &mdash; true: <span class="true">Nunchucks</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_Nunchucks_g07_c04_pose.gif" width="320">
+        <img src="videos/v_Nunchucks_g07_c04_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Nunchucks_g07_c04_flow.gif" width="320">
+        <img src="videos/v_Nunchucks_g07_c04_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Nunchucks_g07_c04_combined.gif" width="320">
+        <img src="videos/v_Nunchucks_g07_c04_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_Nunchucks_g07_c04_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -150,16 +187,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_WallPushups_g01_c01 &mdash; true: <span class="true">WallPushups</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_WallPushups_g01_c01_pose.gif" width="320">
+        <img src="videos/v_WallPushups_g01_c01_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_WallPushups_g01_c01_flow.gif" width="320">
+        <img src="videos/v_WallPushups_g01_c01_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_WallPushups_g01_c01_combined.gif" width="320">
+        <img src="videos/v_WallPushups_g01_c01_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_WallPushups_g01_c01_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -167,16 +209,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_PlayingGuitar_g05_c05 &mdash; true: <span class="true">PlayingGuitar</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_PlayingGuitar_g05_c05_pose.gif" width="320">
+        <img src="videos/v_PlayingGuitar_g05_c05_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_PlayingGuitar_g05_c05_flow.gif" width="320">
+        <img src="videos/v_PlayingGuitar_g05_c05_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_PlayingGuitar_g05_c05_combined.gif" width="320">
+        <img src="videos/v_PlayingGuitar_g05_c05_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_PlayingGuitar_g05_c05_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -184,16 +231,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_PlayingSitar_g02_c06 &mdash; true: <span class="true">PlayingSitar</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_PlayingSitar_g02_c06_pose.gif" width="320">
+        <img src="videos/v_PlayingSitar_g02_c06_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_PlayingSitar_g02_c06_flow.gif" width="320">
+        <img src="videos/v_PlayingSitar_g02_c06_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_PlayingSitar_g02_c06_combined.gif" width="320">
+        <img src="videos/v_PlayingSitar_g02_c06_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_PlayingSitar_g02_c06_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -201,16 +253,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_BoxingSpeedBag_g01_c02 &mdash; true: <span class="true">BoxingSpeedBag</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_BoxingSpeedBag_g01_c02_pose.gif" width="320">
+        <img src="videos/v_BoxingSpeedBag_g01_c02_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_BoxingSpeedBag_g01_c02_flow.gif" width="320">
+        <img src="videos/v_BoxingSpeedBag_g01_c02_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_BoxingSpeedBag_g01_c02_combined.gif" width="320">
+        <img src="videos/v_BoxingSpeedBag_g01_c02_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_BoxingSpeedBag_g01_c02_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -218,16 +275,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_Skijet_g03_c02 &mdash; true: <span class="true">Skijet</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_Skijet_g03_c02_pose.gif" width="320">
+        <img src="videos/v_Skijet_g03_c02_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Skijet_g03_c02_flow.gif" width="320">
+        <img src="videos/v_Skijet_g03_c02_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Skijet_g03_c02_combined.gif" width="320">
+        <img src="videos/v_Skijet_g03_c02_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_Skijet_g03_c02_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -235,16 +297,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_PlayingGuitar_g04_c03 &mdash; true: <span class="true">PlayingGuitar</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_PlayingGuitar_g04_c03_pose.gif" width="320">
+        <img src="videos/v_PlayingGuitar_g04_c03_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_PlayingGuitar_g04_c03_flow.gif" width="320">
+        <img src="videos/v_PlayingGuitar_g04_c03_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_PlayingGuitar_g04_c03_combined.gif" width="320">
+        <img src="videos/v_PlayingGuitar_g04_c03_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_PlayingGuitar_g04_c03_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -252,16 +319,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_ApplyLipstick_g05_c01 &mdash; true: <span class="true">ApplyLipstick</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_ApplyLipstick_g05_c01_pose.gif" width="320">
+        <img src="videos/v_ApplyLipstick_g05_c01_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_ApplyLipstick_g05_c01_flow.gif" width="320">
+        <img src="videos/v_ApplyLipstick_g05_c01_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_ApplyLipstick_g05_c01_combined.gif" width="320">
+        <img src="videos/v_ApplyLipstick_g05_c01_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_ApplyLipstick_g05_c01_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -269,16 +341,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_MoppingFloor_g02_c03 &mdash; true: <span class="true">MoppingFloor</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_MoppingFloor_g02_c03_pose.gif" width="320">
+        <img src="videos/v_MoppingFloor_g02_c03_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_MoppingFloor_g02_c03_flow.gif" width="320">
+        <img src="videos/v_MoppingFloor_g02_c03_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_MoppingFloor_g02_c03_combined.gif" width="320">
+        <img src="videos/v_MoppingFloor_g02_c03_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_MoppingFloor_g02_c03_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -286,16 +363,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_Basketball_g03_c02 &mdash; true: <span class="true">Basketball</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_Basketball_g03_c02_pose.gif" width="320">
+        <img src="videos/v_Basketball_g03_c02_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Basketball_g03_c02_flow.gif" width="320">
+        <img src="videos/v_Basketball_g03_c02_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_Basketball_g03_c02_combined.gif" width="320">
+        <img src="videos/v_Basketball_g03_c02_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_Basketball_g03_c02_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -303,16 +385,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_StillRings_g01_c04 &mdash; true: <span class="true">StillRings</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_StillRings_g01_c04_pose.gif" width="320">
+        <img src="videos/v_StillRings_g01_c04_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_StillRings_g01_c04_flow.gif" width="320">
+        <img src="videos/v_StillRings_g01_c04_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_StillRings_g01_c04_combined.gif" width="320">
+        <img src="videos/v_StillRings_g01_c04_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_StillRings_g01_c04_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -320,16 +407,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_LongJump_g01_c07 &mdash; true: <span class="true">LongJump</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_LongJump_g01_c07_pose.gif" width="320">
+        <img src="videos/v_LongJump_g01_c07_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_LongJump_g01_c07_flow.gif" width="320">
+        <img src="videos/v_LongJump_g01_c07_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_LongJump_g01_c07_combined.gif" width="320">
+        <img src="videos/v_LongJump_g01_c07_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_LongJump_g01_c07_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -337,16 +429,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_RockClimbingIndoor_g03_c03 &mdash; true: <span class="true">RockClimbingIndoor</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_RockClimbingIndoor_g03_c03_pose.gif" width="320">
+        <img src="videos/v_RockClimbingIndoor_g03_c03_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_RockClimbingIndoor_g03_c03_flow.gif" width="320">
+        <img src="videos/v_RockClimbingIndoor_g03_c03_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_RockClimbingIndoor_g03_c03_combined.gif" width="320">
+        <img src="videos/v_RockClimbingIndoor_g03_c03_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_RockClimbingIndoor_g03_c03_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
@@ -354,16 +451,21 @@ flow-only accuracy: 20.4%</p>
     <h3>v_BalanceBeam_g01_c03 &mdash; true: <span class="true">BalanceBeam</span></h3>
     <div class="three">
       <div>
-        <img src="videos/v_BalanceBeam_g01_c03_pose.gif" width="320">
+        <img src="videos/v_BalanceBeam_g01_c03_pose.gif">
         <p>key pose &mdash; pred: <span class="pose-pred"></span> &mdash; confidence: <span class="pose-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_BalanceBeam_g01_c03_flow.gif" width="320">
+        <img src="videos/v_BalanceBeam_g01_c03_flow.gif">
         <p>optical flow &mdash; pred: <span class="flow-pred"></span> &mdash; confidence: <span class="flow-conf"></span></p>
       </div>
       <div>
-        <img src="videos/v_BalanceBeam_g01_c03_combined.gif" width="320">
+        <img src="videos/v_BalanceBeam_g01_c03_combined.gif">
         <p>combined &mdash; pred: <span class="comb-pred"></span> &mdash; confidence: <span class="comb-conf"></span></p>
+      </div>
+      <div>
+        <img src="videos/v_BalanceBeam_g01_c03_grid.gif">
+        <p>PoseOFF sampling grid &mdash; skeleton + the 5&times;5 flow window per joint at full
+           brightness; everything dimmed is flow the model never sees</p>
       </div>
     </div>
   </div>
